@@ -1,0 +1,13 @@
+import fs from 'fs';
+let content = fs.readFileSync('src/App.tsx', 'utf8');
+content = `import dlssNative from './assets/dlss_native.png';\nimport dlssEnhanced from './assets/dlss_enhanced.png';\nimport hardwareStack from './assets/hardware_stack.png';\nimport edsrLogic from './assets/edsr_logic.png';\nimport psnrCurve from './assets/psnr_curve.png';\nimport lossCurve from './assets/loss_curve.png';\nimport sliderBefore from './assets/slider_before.png';\nimport sliderAfter from './assets/slider_after.png';\nimport sampleOutput from './assets/sample_output.png';\n` + content;
+content = content.replace(/src=\{\`\$\{import\.meta\.env\.BASE_URL\}dlss_native\.png\`\}/g, 'src={dlssNative}');
+content = content.replace(/src=\{\`\$\{import\.meta\.env\.BASE_URL\}dlss_enhanced\.png\`\}/g, 'src={dlssEnhanced}');
+content = content.replace(/src=\{\`\$\{import\.meta\.env\.BASE_URL\}hardware_stack\.png\`\}/g, 'src={hardwareStack}');
+content = content.replace(/src=\{\`\$\{import\.meta\.env\.BASE_URL\}edsr_logic\.png\`\}/g, 'src={edsrLogic}');
+content = content.replace(/src=\{\`\$\{import\.meta\.env\.BASE_URL\}psnr_curve\.png\`\}/g, 'src={psnrCurve}');
+content = content.replace(/src=\{\`\$\{import\.meta\.env\.BASE_URL\}loss_curve\.png\`\}/g, 'src={lossCurve}');
+content = content.replace(/beforeImage=\{\`\$\{import\.meta\.env\.BASE_URL\}slider_before\.png\`\}/g, 'beforeImage={sliderBefore}');
+content = content.replace(/afterImage=\{\`\$\{import\.meta\.env\.BASE_URL\}slider_after\.png\`\}/g, 'afterImage={sliderAfter}');
+content = content.replace(/src=\{\`\$\{import\.meta\.env\.BASE_URL\}sample_output\.png\`\}/g, 'src={sampleOutput}');
+fs.writeFileSync('src/App.tsx', content); console.log('Replaced App.tsx imports');

@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'ThesisCustom';
+  src: url('./assets/c66fc489e-C-BHYa_K.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  --font-serif: "ThesisCustom", "Newsreader", serif;
+  --font-sans: "ThesisCustom", "IBM Plex Sans", sans-serif;
+  --font-thesis: "ThesisCustom", serif;
+  
+  --color-minxin-bg: #F5F3EF;
+  --color-minxin-sidebar: #7C898B;
+  --color-minxin-dark: #2C3E50;
+  --color-minxin-tan: #BBA58E;
+  --color-minxin-gray: #89989B;
+}
+
+:root {
+  --app-font: var(--font-thesis);
+  font-family: var(--app-font);
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--app-font);
+  background: var(--color-minxin-bg);
+  color: var(--color-minxin-dark);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+* {
+  font-family: var(--app-font) !important;
+}
+
+.paper-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.15;
+  z-index: 100;
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+}
+
+.minxin-shadow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
